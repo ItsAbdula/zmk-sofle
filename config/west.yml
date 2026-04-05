@@ -6,6 +6,10 @@ manifest:
       # See:
       # - https://zmk.dev/docs/features/modules
       # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
+    - name: zzeneg # <-- required for Raw HID module
+      url-base: https://github.com/zzeneg
+    - name: srwi # <-- required for KeyPeek module
+      url-base: https://github.com/srwi
   #  - name: gpeye
   #    url-base: https://github.com/GPeye
   projects:
@@ -19,5 +23,11 @@ manifest:
       remote: zmkfirmware
       revision: v0.3.0
       import: app/west.yml
+    - name: zmk-raw-hid # <-- Raw HID module
+      remote: zzeneg
+      revision: main
+    - name: zmk-keypeek-layer-notifier # <-- KeyPeek module
+      remote: srwi
+      revision: master
   self:
     path: boards
